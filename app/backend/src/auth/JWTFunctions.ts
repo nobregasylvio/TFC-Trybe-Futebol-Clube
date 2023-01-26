@@ -7,7 +7,7 @@ export default class JWTFunctions {
   private _jwtConfig: SignOptions;
 
   constructor() {
-    this._secret = process.env.TOKEN_SECRET || 'mySecret' as Secret;
+    this._secret = process.env.TOKEN_SECRET || 'jwt_secret' as Secret;
 
     this._jwtConfig = {
       expiresIn: '2d',
