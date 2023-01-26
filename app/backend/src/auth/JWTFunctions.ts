@@ -20,5 +20,5 @@ export default class JWTFunctions {
     return sign({ data: userWithoutPassword }, this._secret as string, this._jwtConfig);
   };
 
-  public verifyToken = (token: string) => verify(token, this._secret);
+  public verifyToken = (authorization: string) => verify(authorization, this._secret);
 }
