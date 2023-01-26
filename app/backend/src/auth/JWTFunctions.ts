@@ -2,14 +2,14 @@ import { Secret, sign, SignOptions } from 'jsonwebtoken';
 import { IUser } from '../interfaces';
 
 export default class JWTFunctions {
-  private secret: Secret;
+  private _secret: Secret;
 
-  private jwtConfig: SignOptions;
+  private _jwtConfig: SignOptions;
 
   constructor() {
-    this.secret = process.env.TOKEN_SECRET || 'mySecret' as Secret;
+    this._secret = process.env.TOKEN_SECRET || 'mySecret' as Secret;
 
-    this.jwtConfig = {
+    this._jwtConfig = {
       expiresIn: '2d',
       algorithm: 'HS256',
     };
@@ -17,6 +17,6 @@ export default class JWTFunctions {
 
   public createToken = (user: IUser) => {
     const { password: _, ...userWithoutPassword } = user;
-    return sign({ data: userWithoutPassword }, this.secret as string, this.jwtConfig);
+    return sign({ data: userWithoutPassword }, this._secret as string, this._jwtConfig);
   };
 }
