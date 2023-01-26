@@ -1,4 +1,4 @@
-import { Secret, sign, SignOptions } from 'jsonwebtoken';
+import { Secret, sign, SignOptions, verify } from 'jsonwebtoken';
 import { IUser } from '../interfaces';
 
 export default class JWTFunctions {
@@ -19,4 +19,6 @@ export default class JWTFunctions {
     const { password: _, ...userWithoutPassword } = user;
     return sign({ data: userWithoutPassword }, this._secret as string, this._jwtConfig);
   };
+
+  public verifyToken = (token: string) => verify(token, this._secret);
 }
