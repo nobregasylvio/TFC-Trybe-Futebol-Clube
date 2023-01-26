@@ -4,6 +4,7 @@ import UserModel from '../database/models/User';
 import { ILogin } from '../interfaces';
 import HttpException from '../utils/http.exception';
 import validateLogin from './validations/validationsInputValues';
+import httpStatusCode from '../utils/httpStatusCode';
 
 export default class UserService {
   private _jwt: JWTFunctions;
@@ -15,10 +16,12 @@ export default class UserService {
   public login = async (login: ILogin) => {
     validateLogin(login);
     const user = await this._model.findOne({ where: { email: login.email } });
-    if (!user) throw new HttpException(401, 'Incorrect email or password');
+    if (!user) throw new HttpException(httpStatusCode.unauthorized, 'Incorrect email or password');
 
     const isCorrectPassword = await bcrypt.compare(login.password, user.password);
-    if (!isCorrectPassword) throw new HttpException(401, 'Incorrect email or password');
+    if (!isCorrectPassword) {
+      throw new HttpException(httpStatusCode.unauthorized, 'Incorrect email or password');
+    }
 
     const token = this._jwt.createToken(user.dataValues);
     return token;
