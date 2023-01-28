@@ -2,7 +2,7 @@ import 'express-async-errors';
 import * as express from 'express';
 import loginRoutes from './routes/login.routes';
 import teamRoutes from './routes/team.routes';
-import matchRoutes from './routes/match.routes'
+import matchRoutes from './routes/match.routes';
 import httpErrorMiddleware from './middlewares/http.error.middleware';
 
 class App {
