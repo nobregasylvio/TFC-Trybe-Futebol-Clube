@@ -12,7 +12,7 @@ export default class UserController {
   };
 
   public validate: RequestHandler = (req: Request, res: Response) => {
-    const { data: { role } } = req.body;
+    const { data: { role } } = req.body.user;
     res.status(httpStatusCode.ok).json({ role });
   };
 }
