@@ -1,7 +1,6 @@
 import TeamModel from '../database/models/Team';
 import { ITeam } from '../interfaces';
 import HttpException from '../utils/http.exception';
-import httpStatusCode from '../utils/httpStatusCode';
 
 export default class TeamService {
   constructor(private _model = TeamModel) { }
@@ -11,9 +10,9 @@ export default class TeamService {
     return teams;
   }
 
-  public async findById(id: string): Promise<ITeam> {
+  public async findById(id: string | number): Promise<ITeam> {
     const team = await this._model.findByPk(id);
-    if (!team) throw new HttpException(httpStatusCode.notFount, 'Team not found');
+    if (!team) throw new HttpException(404, 'There is no team with such id!');
     return team;
   }
 }
