@@ -58,6 +58,7 @@ export default class TeamStats {
 
   protected setTotalPoints() {
     this.totalPoints = this.totalVictories * 3 + this.totalDraws;
+    this.setEfficiency();
   }
 
   protected set setTotalVictories(value: number) {
