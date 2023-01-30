@@ -16,9 +16,12 @@ export interface ITeam {
   teamName: string
 }
 
-export interface IMatch {
-  homeTeamId: number,
-  awayTeamId: number,
+export interface IMatchGoals {
   homeTeamGoals: number,
   awayTeamGoals: number,
+}
+
+export interface IMatch extends IMatchGoals {
+  homeTeamId: number,
+  awayTeamId: number,
 }
