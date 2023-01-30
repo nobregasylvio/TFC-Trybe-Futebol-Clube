@@ -13,7 +13,7 @@ export interface IUser {
 
 export interface ITeam {
   id: number,
-  teamName: string
+  teamName: string,
 }
 
 export interface IMatchGoals {
@@ -24,4 +24,23 @@ export interface IMatchGoals {
 export interface IMatch extends IMatchGoals {
   homeTeamId: number,
   awayTeamId: number,
+}
+
+export interface ITeamMatch extends ITeam {
+  homeMatch?: [{
+    id: number,
+    homeTeamId: number,
+    homeTeamGoals: number,
+    awayTeamId: number,
+    awayTeamGoals: number,
+    inProgress: boolean,
+  }],
+  awayMatch?: [{
+    id: number,
+    homeTeamId: number,
+    homeTeamGoals: number,
+    awayTeamId: number,
+    awayTeamGoals: number,
+    inProgress: boolean,
+  }],
 }
