@@ -3,6 +3,7 @@ import * as express from 'express';
 import loginRoutes from './routes/login.routes';
 import teamRoutes from './routes/team.routes';
 import matchRoutes from './routes/match.routes';
+import leaderboardRoutes from './routes/leaderboard.routes';
 import httpErrorMiddleware from './middlewares/http.error.middleware';
 
 class App {
@@ -13,11 +14,11 @@ class App {
 
     this.config();
 
-    // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
     this.app.use('/login', loginRoutes);
     this.app.use('/teams', teamRoutes);
     this.app.use('/matches', matchRoutes);
+    this.app.use('/leaderboard', leaderboardRoutes);
     this.app.use(httpErrorMiddleware);
   }
 
