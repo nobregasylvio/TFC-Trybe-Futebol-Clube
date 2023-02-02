@@ -2,7 +2,7 @@
 
 O TFC é um site informativo sobre partidas e classificações de futebol!
 
-Nesse Projeto, foi desenvolvido um back-end dockerizado utilizando modelagem de dados através do Sequelize, o código foi escrito em TypeScript, utilizando a estrutura POO e SOLID, há tambem uma validação de tokens com o JWT e validação/criptografia de senhas utilizando o BCrypt. Essa API é consumida por um front-end já provido pela Trybe. :rocket:
+Nesse Projeto Full stack, foi desenvolvido um back-end dockerizado utilizando modelagem de dados através do Sequelize, o código foi escrito em TypeScript, utilizando a estrutura POO e SOLID, há tambem uma validação de tokens com o JWT e validação/criptografia de senhas utilizando o BCrypt. Essa API é consumida por um front-end já provido pela Trybe. :rocket:
 
 <details>
 <summary><strong>Configurações mínimas para execução do projeto</strong></summary><br />
